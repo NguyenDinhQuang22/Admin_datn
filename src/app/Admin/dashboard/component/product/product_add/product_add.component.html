@@ -1,0 +1,158 @@
+<!-- <div class="container"> -->
+  <div class="row ">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 row">
+            <div class="col-6">
+              <h6 class="text-white text-capitalize ps-3">Thêm mới Tin</h6>
+
+            </div>
+          </div>
+        </div>
+        <!-- <div class="card-header">Add Product</div> -->
+        <div class="card-body">
+          <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+            <div class="row mt-2">
+              <div class="col-12 form-group">
+                <h6 for="name">Tiêu đề Tin<span style="color: red;">*</span></h6>
+                <input type="text" class="form-control" formControlName="name">
+                <div style="color: #FF3333;" *ngIf="submitted && isInvalidField('name')">
+                  <p style="font-size: 15px;">--{{ getErrorMessage('name') }}--</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-2">
+              <div class="col-6 form-group">
+                <h6 for="category_id">Loại hình trọ<span style="color: red;">*</span></h6>
+                <select class="form-select" formControlName="category_id">
+                  <option value=""disabled>-- Chọn loại hình trọ--</option>
+                  <option *ngFor="let item of category_product" value="{{ item.id }}">{{ item.name_cate }}</option>
+                </select>
+                <div style="color: #FF3333;" *ngIf="submitted && isInvalidField('category_id')">
+                  <p style="font-size: 15px;">--{{ getErrorMessage('category_id') }}--</p>
+                </div>
+
+              </div>
+              <div class="col-6 form-group">
+                <h6 for="image">Ảnh Tin</h6>
+                <!-- <input type="file" class="form-control" (change)="onFileSelected($event)" multiple> -->
+                <input type="file" class="form-control" (change)="onFileSelected($event)" multiple>
+              </div>
+              <div class="mt-2" id="preview"></div>
+             
+            </div>
+
+            <div class="row mt-2">
+              
+              <!-- <div class="col-6 form-group">
+                <h6 for="category_id">Loại tin<span style="color: red;">*</span></h6>
+                <select class="form-select" formControlName="brand_id">
+                  <option value="" disabled>-- Loại tin --</option>
+                  <option *ngFor="let item of brand" value="{{ item.id }}">{{ item.name }}</option>
+                </select>
+                <div style="color: #FF3333;" *ngIf="submitted && isInvalidField('brand_id')">
+                  <p style="font-size: 15px;">--{{ getErrorMessage('brand_id') }}--</p>
+                </div>
+              </div> -->
+              <div class="col-6 form-group">
+                <h6 for="room_area">Diện tích<span style="color: red;">*</span></h6>
+                <input type="number" class="form-control" min="0" formControlName="room_area" >
+                <div style="color: #FF3333;" *ngIf="submitted && isInvalidField('room_area')">
+                  <p style="font-size: 15px;">--{{ getErrorMessage('room_area') }}--</p>
+                </div>
+              </div>
+
+              <div class="col-6 form-group">
+                <h6 for="default_price">Giá phòng<span style="color: red;">*</span></h6>
+                <input type="number" class="form-control" min="0" formControlName="default_price" >
+                <div style="color: #FF3333;" *ngIf="submitted && isInvalidField('default_price')">
+                  <p style="font-size: 15px;">--{{ getErrorMessage('default_price') }}--</p>
+                </div>
+              </div>
+             
+            </div>
+
+            <div class="row mt-2">
+              <div class="col-6 form-group">
+                <h6 for="total_room">Tổng phòng<span style="color: red;">*</span></h6>
+                <input type="number" class="form-control" min="0" formControlName="total_room" >
+                <div style="color: #FF3333;" *ngIf="submitted && isInvalidField('total_room')">
+                  <p style="font-size: 15px;">--{{ getErrorMessage('total_room') }}--</p>
+                </div>
+              </div>
+              <div class="col-6 form-group">
+                <h6 for="at_maximum">Ở tối đa<span style="color: red;">*</span></h6>
+                <input type="number" class="form-control" min="0" formControlName="at_maximum" >
+                <div style="color: #FF3333;" *ngIf="submitted && isInvalidField('at_maximum')">
+                  <p style="font-size: 15px;">--{{ getErrorMessage('at_maximum') }}--</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-2">
+              <div class="col-6 form-group">
+                <h6 for="self_governance">Trọ tự quản<span style="color: red;">*</span></h6>
+                <select class="form-select" formControlName="self_governance">
+                  <option value=""disabled>-- Chọn hình thức--</option>
+                  <option value="1">Có</option>
+                  <option value="2">Không</option>
+                </select>
+                <div style="color: #FF3333;" *ngIf="submitted && isInvalidField('self_governance')">
+                  <p style="font-size: 15px;">--{{ getErrorMessage('self_governance') }}--</p>
+                </div>
+
+              </div>
+              <div class="col-6 form-group">
+                <h6 for="preferred_gender">Giới tính ưu tiên<span style="color: red;">*</span></h6>
+                <select class="form-select" formControlName="preferred_gender">
+                  <option value="" disabled>-- Tất cả --</option>
+                  <option value="1">Nam</option>
+                  <option value="2">Nữ</option>
+                </select>
+                <div style="color: #FF3333;" *ngIf="submitted && isInvalidField('preferred_gender')">
+                  <p style="font-size: 15px;">--{{ getErrorMessage('preferred_gender') }}--</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-2">
+              <div class="col-6 form-group">
+                <h6 for="name">Chủ trọ<span style="color: red;">*</span></h6>
+                <input type="text" class="form-control" formControlName="host">
+                <div style="color: #FF3333;" *ngIf="submitted && isInvalidField('host')">
+                  <p style="font-size: 15px;">--{{ getErrorMessage('host') }}--</p>
+                </div>
+              </div>
+              <div class="col-6 form-group">
+                <h6 for="name">Số điện thoại<span style="color: red;">*</span></h6>
+                <input type="text" class="form-control" formControlName="phone">
+                <div style="color: #FF3333;" *ngIf="submitted && isInvalidField('phone')">
+                  <p style="font-size: 15px;">--{{ getErrorMessage('phone') }}--</p>
+                </div>
+              </div>
+            </div>
+                              
+            <!-- <div class="form-group mt-3">
+              <h6 for="tech_specs">Tiện nghi</h6>
+              <ckeditor formControlName="tech_specs"></ckeditor>
+             
+            </div> -->
+
+            <div class="form-group mt-3">
+              <h6 for="description">Mô tả chi tiết Tin</h6>
+              <ckeditor class="form-control" formControlName="description"></ckeditor>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <a routerLink="/product"><button type="button" class="btn btn-warning">Quay lại</button></a>
+              <button type="submit" class="btn btn-danger ms-2">Lưu</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+
