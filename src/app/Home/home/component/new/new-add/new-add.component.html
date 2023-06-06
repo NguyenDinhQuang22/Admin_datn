@@ -1,0 +1,363 @@
+<div class="main-content">
+	<div class="container">
+		<div class="module module-hostel add">
+			<div class="module-header">
+				Thêm mới Tin
+				<p class="description">Đăng tin của bạn vào hệ thống tìm kiếm Trọ</p>
+			</div>
+			<div class="module-content">
+				<form action="https://tromoi.com/user/tao-moi-tin" id="appForm" enctype="multipart/form-data" method="post" novalidate="novalidate">					<div class="step _1">
+						<div class="row">
+							<label>Tiêu đề tin <i>*</i></label>
+							<div class="item long">
+								<input type="text" id="name" name="name" class="" placeholder="Tiêu đề đăng tin">							</div>
+						</div>
+						<div class="group-row">
+							<div class="row col-3">
+								<label>Loại hình</label>
+								<div class="item long">
+									<select id="type" name="type">
+	<option value="cho-thue-tro">Cho thuê trọ</option>
+	<option value="cho-thue-nha-can-ho">Cho thuê Nhà/Căn hộ</option>
+	<option value="tim-o-ghep">Tìm ở ghép</option>
+	<option value="tim-tro">Người tìm trọ</option>
+</select>								</div>
+							</div>
+							<div class="row col-3">
+								<label>Hình thức trọ</label>
+								<div class="item long">
+									<select id="form_type" name="form_type">
+	<option value="phong-tro">Phòng trọ</option>
+	<option value="ky-tuc-xa">Ký túc xá (dorm)</option>
+	<option value="chung-cu-mini">Chung cư mini</option>
+	<option value="cu-xa">Cư xá</option>
+	<option value="homestay">Homestay</option>
+	<option value="tro-nha-nguyen-can">Trọ nhà nguyên căn</option>
+	<option value="tro-trong-nha-chung-chu">Trọ trong nhà chung chủ</option>
+</select>								</div>
+							</div>
+							<div class="row col-3">
+								<label>Trọ tự quản</label>
+								<div class="item long">
+									<select id="managing" name="managing">
+	<option value="0">--- Chọn hình thức ---</option>
+	<option value="1">Không</option>
+	<option value="2">Có</option>
+</select>								</div>
+							</div>
+						</div>
+						<div class="group-row">
+							<div class="row col-3">
+								<label>Phòng trống</label>
+								<div class="item long">
+									<input type="number" id="empty_room" name="empty_room" value="1" placeholder="Phòng còn trống cho thuê" min="0">								</div>
+							</div>
+							<div class="row col-3">
+								<label>Tổng phòng</label>
+								<div class="item long">
+									<input type="number" id="room" name="room" placeholder="Tổng số phòng" min="1">								</div>
+							</div>
+							<div class="row col-3">
+								<label>Ở tối đa (người/phòng)</label>
+								<div class="item long">
+									<input type="number" id="quantity" name="quantity" placeholder="Tối đa số người ở 1 phòng" min="1">								</div>
+							</div>
+						</div>
+						<div class="group-row">
+							<div class="row col-3">
+								<label>Giá phòng</label>
+								<div class="item long form-group input-group">
+									<input type="number" id="price_min" name="price_min" class="txt_short " min="0" placeholder="Nhập đúng giá trị tiền" title="Giá mỗi tháng">									<span class="input-group-addon">VNĐ</span>
+								</div>
+								<label class="accounting" id="lbl_price_min"></label>
+							</div>
+							<div class="row col-3">
+								<label>Diện tích phòng</label>
+								<div class="item long form-group input-group">
+									<input type="number" id="area_min" name="area_min" placeholder="Diện tích của phòng" step="1" min="0">									<span class="input-group-addon">m²</span>
+								</div>
+							</div>
+							<div class="row col-3">
+								<label>Giới tính ưu tiên</label>
+								<div class="item long">
+									<select id="sex" name="sex">
+	<option value="0">--- Tất cả ---</option>
+	<option value="1">Nam</option>
+	<option value="2">Nữ</option>
+</select>								</div>
+							</div>
+						</div>
+						<div class="clear"></div>
+						<div class="row object_type">
+							<label>Đối tượng</label>
+							<ul class="boxes">
+								<li>
+									<input type="checkbox" id="object_type[study]" name="object_type[study]" value="1">
+									<label for="object_type[study]">Đi học</label>
+								</li>
+								<li>
+									<input type="checkbox" id="object_type[work]" name="object_type[work]" value="1">
+									<label for="object_type[work]">Đi làm</label>
+								</li>
+								<li>
+									<input type="checkbox" id="object_type[family]" name="object_type[family]" value="1">
+									<label for="object_type[family]">Gia đình</label>
+								</li>
+								<li>
+									<input type="checkbox" id="object_type[couple]" name="object_type[couple]" value="1">
+									<label for="object_type[couple]">Cặp đôi</label>
+								</li>
+							</ul>
+						</div>
+						<div class="row amenities">
+							<label>Tiện nghi</label>
+							<ul class="boxes">
+								<li>
+									<input type="checkbox" id="amenities[mezzanine]" name="amenities[mezzanine]" value="1">
+									<label for="amenities[mezzanine]">Gác lửng</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[wifi]" name="amenities[wifi]" value="1">
+									<label for="amenities[wifi]">Wifi</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[toilet]" name="amenities[toilet]" value="1">
+									<label for="amenities[toilet]">Vệ sinh trong</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[bathroom]" name="amenities[bathroom]" value="1">
+									<label for="amenities[bathroom]">Phòng tắm</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[water_heater]" name="amenities[water_heater]" value="1">
+									<label for="amenities[water_heater]">Bình nóng lạnh</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[kitchen_shelf]" name="amenities[kitchen_shelf]" value="1">
+									<label for="amenities[kitchen_shelf]">Kệ bếp</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[washing]" name="amenities[washing]" value="1">
+									<label for="amenities[washing]">Máy giặt</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[tv]" name="amenities[tv]" value="1">
+									<label for="amenities[tv]">Tivi</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[conditioner]" name="amenities[conditioner]" value="1">
+									<label for="amenities[conditioner]">Điều hòa</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[fridge]" name="amenities[fridge]" value="1">
+									<label for="amenities[fridge]">Tủ lạnh</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[pallet]" name="amenities[pallet]" value="1">
+									<label for="amenities[pallet]">Giường nệm</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[wardrobe]" name="amenities[wardrobe]" value="1">
+									<label for="amenities[wardrobe]">Tủ quần áo</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[balcony]" name="amenities[balcony]" value="1">
+									<label for="amenities[balcony]">Ban công/sân thượng</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[elevator]" name="amenities[elevator]" value="1">
+									<label for="amenities[elevator]">Thang máy</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[parking]" name="amenities[parking]" value="1">
+									<label for="amenities[parking]">Bãi để xe riêng</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[camera]" name="amenities[camera]" value="1">
+									<label for="amenities[camera]">Camera an ninh</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[swim_pool]" name="amenities[swim_pool]" value="1">
+									<label for="amenities[swim_pool]">Hồ bơi</label>
+								</li>
+								<li>
+									<input type="checkbox" id="amenities[garden]" name="amenities[parking]" value="1">
+									<label for="amenities[garden]">Sân vườn</label>
+								</li>
+							</ul>
+						</div>
+						<div class="row environment">
+							<label>Môi trường xung quanh</label>
+							<ul class="boxes">
+								<li>
+									<input type="checkbox" id="environment[market]" name="environment[market]" value="1">
+									<label for="environment[market]">Chợ</label>
+								</li>
+								<li>
+									<input type="checkbox" id="environment[supermarket]" name="environment[supermarket]" value="1">
+									<label for="environment[supermarket]">Siêu thị</label>
+								</li>
+								<li>
+									<input type="checkbox" id="environment[hospital]" name="environment[hospital]" value="1">
+									<label for="environment[hospital]">Bệnh viện</label>
+								</li>
+								<li>
+									<input type="checkbox" id="environment[school]" name="environment[school]" value="1">
+									<label for="environment[school]">Trường học</label>
+								</li>
+								<li>
+									<input type="checkbox" id="environment[park]" name="environment[park]" value="1">
+									<label for="environment[park]">Công viên</label>
+								</li>
+								<li>
+									<input type="checkbox" id="environment[bus]" name="environment[bus]" value="1">
+									<label for="environment[bus]">Bến xe Bus</label>
+								</li>
+								<li>
+									<input type="checkbox" id="environment[sport]" name="environment[sport]" value="1">
+									<label for="environment[sport]">Trung tâm thể dục thể thao</label>
+								</li>
+							</ul>
+						</div>
+						<p>&nbsp;</p>
+						<div class="row col-49 left">
+							<div class="row col-49 left">
+								<label>Tỉnh/Thành phố <i>*</i></label>
+								<div class="item long">
+									<select id="opt_province" name="opt_province" class="form-control select2 select2-hidden-accessible opt_province" title="Tỉnh/Thành phố" single="" data-placeholder="Tỉnh/Thành phố" aria-hidden="true" style="width:100%" tabindex="-1">
+	<option value="">Tỉnh/Thành phố</option>
+	<option value="ho-chi-minh">Hồ Chí Minh</option>
+	<option value="ha-noi">Hà Nội</option>
+	<option value="da-nang">Đà Nẵng</option>
+	<option value="thua-thien-hue">Thừa Thiên Huế</option>
+	<option value="binh-duong">Bình Dương</option>
+	<option value="an-giang">An Giang</option>
+	<option value="ba-ria-vung-tau">Bà Rịa - Vũng Tàu</option>
+	<option value="bac-giang">Bắc Giang</option>
+	<option value="bac-kan">Bắc Kạn</option>
+	<option value="bac-lieu">Bạc Liêu</option>
+	<option value="bac-ninh">Bắc Ninh</option>
+	<option value="ben-tre">Bến Tre</option>
+	<option value="binh-phuoc">Bình Phước</option>
+	<option value="binh-thuan">Bình Thuận</option>
+	<option value="binh-dinh">Bình Định</option>
+	<option value="ca-mau">Cà Mau</option>
+	<option value="can-tho">Cần Thơ</option>
+	<option value="cao-bang">Cao Bằng</option>
+	<option value="gia-lai">Gia Lai</option>
+	<option value="ha-giang">Hà Giang</option>
+	<option value="ha-nam">Hà Nam</option>
+	<option value="ha-tinh">Hà Tĩnh</option>
+	<option value="hai-duong">Hải Dương</option>
+	<option value="hai-phong">Hải Phòng</option>
+	<option value="hau-giang">Hậu Giang</option>
+	<option value="hoa-binh">Hòa Bình</option>
+	<option value="hung-yen">Hưng Yên</option>
+	<option value="khanh-hoa">Khánh Hòa</option>
+	<option value="kien-giang">Kiên Giang</option>
+	<option value="kon-tum">Kon Tum</option>
+	<option value="lai-chau">Lai Châu</option>
+	<option value="lam-dong">Lâm Đồng</option>
+	<option value="lang-son">Lạng Sơn</option>
+	<option value="lao-cai">Lào Cai</option>
+	<option value="long-an">Long An</option>
+	<option value="nam-dinh">Nam Định</option>
+	<option value="nghe-an">Nghệ An</option>
+	<option value="ninh-binh">Ninh Bình</option>
+	<option value="ninh-thuan">Ninh Thuận</option>
+	<option value="phu-tho">Phú Thọ</option>
+	<option value="phu-yen">Phú Yên</option>
+	<option value="quang-binh">Quảng Bình</option>
+	<option value="quang-nam">Quảng Nam</option>
+	<option value="quang-ngai">Quảng Ngãi</option>
+	<option value="quang-ninh">Quảng Ninh</option>
+	<option value="quang-tri">Quảng Trị</option>
+	<option value="soc-trang">Sóc Trăng</option>
+	<option value="son-la">Sơn La</option>
+	<option value="tay-ninh">Tây Ninh</option>
+	<option value="thai-binh">Thái Bình</option>
+	<option value="thai-nguyen">Thái Nguyên</option>
+	<option value="thanh-hoa">Thanh Hóa</option>
+	<option value="tien-giang">Tiền Giang</option>
+	<option value="tra-vinh">Trà Vinh</option>
+	<option value="tuyen-quang">Tuyên Quang</option>
+	<option value="vinh-long">Vĩnh Long</option>
+	<option value="vinh-phuc">Vĩnh Phúc</option>
+	<option value="yen-bai">Yên Bái</option>
+	<option value="dak-lak">Đắk Lắk</option>
+	<option value="dak-nong">Đắk Nông</option>
+	<option value="dien-bien">Điện Biên</option>
+	<option value="dong-nai">Đồng Nai</option>
+	<option value="dong-thap">Đồng Tháp</option>
+</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" title="Tỉnh/Thành phố" tabindex="0" aria-labelledby="select2-opt_province-container"><span class="select2-selection__rendered" id="select2-opt_province-container"><span class="select2-selection__placeholder">Tỉnh/Thành phố</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>								</div>
+							</div>
+							<div class="row col-49 right">
+								<label>Quận/Huyện <i>*</i></label>
+								<div class="item long">
+									<select id="district_code" name="district_code" class="form-control select2 select2-hidden-accessible" title="Quận/Huyện" single="" data-placeholder="Quận/Huyện" aria-hidden="true" style="width:100%" tabindex="-1"><option value="0">Quận/Huyện ...</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" title="Quận/Huyện" tabindex="0" aria-labelledby="select2-district_code-container"><span class="select2-selection__rendered" id="select2-district_code-container" title="Quận/Huyện ...">Quận/Huyện ...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>								</div>
+							</div>
+							<div class="row col-49 left">
+								<label>Phường/Xã</label>
+								<div class="item long">
+									<select id="ward_code" name="ward_code" class="form-control select2 select2-hidden-accessible" title="Phường/Xã" single="" data-placeholder="Phường/Xã" aria-hidden="true" style="width:100%" tabindex="-1"><option value="0">Phường/Xã ...</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" title="Phường/Xã" tabindex="0" aria-labelledby="select2-ward_code-container"><span class="select2-selection__rendered" id="select2-ward_code-container" title="Phường/Xã ...">Phường/Xã ...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>								</div>
+							</div>
+							<div class="row col-49 right">
+								<label>Đường</label>
+								<div class="item">
+									<select id="street" name="street" class="form-control select2 select2-hidden-accessible street" title="Đường" single="" data-placeholder="Đường" aria-hidden="true" style="width:100%" tabindex="-1">
+	<option value="">Đường</option>
+	<option selected="selected" value="0">Đường/Phố...</option>
+</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" title="Đường" tabindex="0" aria-labelledby="select2-street-container"><span class="select2-selection__rendered" id="select2-street-container" title="Đường/Phố...">Đường/Phố...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>								</div>
+							</div>
+							<div class="clear"></div>
+							<div class="row">
+								<label>Địa chỉ <i>*</i></label>
+								<div class="item address">
+									<input type="text" id="address" name="address" class="address " placeholder="Địa chỉ..." title="Địa chỉ">								</div>
+							</div>
+							<div class="notice warning">Nhập vào địa chỉ chính xác hoặc hoặc sửa vị trí trên bản đồ bằng cách kéo biểu tượng <img src="https://tromoi.com/frontend/home/images/google-map-pointer.png"> tới đúng vị trí bạn cần để có vị trí google như mong muốn.</div>
+							<div class="clear"></div>
+						</div>
+						
+						<div class="clear"></div>
+						<div class="line"></div>
+						<h2>Mô tả chi tiết</h2>
+						<div class="row content">
+							<div class="item content">
+								<textarea id="content" name="content" class="" placeholder="Nội dung tin ít nhất 10 ký tự. Bạn nên có đủ các thông tin của tin đăng: nhà vệ sinh trong hay ngoài, giá điện, nước, trọ gần khu vực nào và các thông tin thêm của trọ." rows="10"></textarea>							</div>
+						</div>
+						<div class="clear"></div>
+						<p>&nbsp;</p>
+						<h2>Thông tin liên hệ</h2>
+						<div class="row col-49 left">
+							<label>Họ tên</label>
+							<div class="item long">
+								<input type="text" id="master_name" name="master_name" value="0966496360" class="">							</div>
+						</div>
+						<div class="row col-49 right">
+							<label>Điện thoại</label>
+							<div class="item long">
+								<input type="text" id="phone" name="phone" class="" placeholder="Nhập nhiều số điện thoại cách nhau bằng dấu chấm phẩy">							</div>
+						</div>
+						<div class="row col-49 left">
+							<label>Email</label>
+							<div class="item long">
+								<input type="text" id="email" name="email" placeholder="Nhập địa chỉ mail của bạn.">							</div>
+						</div>
+						<div class="row col-49 right">
+							<label>Facebook</label>
+							<div class="item long">
+								<input type="text" id="facebook" name="facebook" value="" placeholder="Dán link facebook của bạn vào đây.">							</div>
+						</div>
+						<div class="clear"></div>
+						<div class="line"></div>
+						<h2>Hình ảnh</h2>
+					
+						<div class="row submit">
+							<a id="button" class="save">Lưu tin</a>
+						</div>
+					</div>
+				</form>			</div>
+		</div>
+	</div>
+</div>
